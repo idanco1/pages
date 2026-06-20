@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Dinvest hike planner" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+ <wpt lat="46.871983" lon="8.436010"><ele>1718</ele><name>1. Chruzhutte (1718 m)</name><desc>Start - top of the Bannalp cable car. Head toward Bannalpsee. Signs: Walenpfad / Brunni.</desc></wpt>
+ <wpt lat="46.868095" lon="8.443579"><name>2. Urnerstafel</name><desc>Alpine dairy farm near the lake where the ascent begins.</desc></wpt>
+ <wpt lat="46.868713" lon="8.413333"><ele>1951</ele><name>3. Walegg (1951 m)</name><desc>Highest point of the day. Steep zig-zag climb, then descent.</desc></wpt>
+ <wpt lat="46.858402" lon="8.431870"><ele>1884</ele><name>4. Oberfeld (1884 m)</name><desc>Alpine meadow; Alp Oberfeld restaurant (goat cheese, meat, yoghurt).</desc></wpt>
+ <wpt lat="46.838989" lon="8.422298"><ele>1716</ele><name>5. Rigidalalp (1716 m)</name><desc>Mountain restaurant; trail levels out and widens.</desc></wpt>
+ <wpt lat="46.831959" lon="8.407338"><ele>1600</ele><name>6. Brunni / Ristis (1600 m)</name><desc>End of hike. Engelberg-Ristis cable car down to Engelberg. Fri 26 Jun 2026: 08:00-17:00 every 20 min; single CHF 20 (CHF 10 Half-Fare).</desc></wpt>
+ <rte>
+  <name>Day 1 checkpoints - Walenpfad</name>
+  <rtept lat="46.871983" lon="8.436010"><ele>1718</ele><name>1. Chruzhutte (1718 m)</name><desc>Start - top of the Bannalp cable car. Head toward Bannalpsee. Signs: Walenpfad / Brunni.</desc></rtept>
+  <rtept lat="46.868095" lon="8.443579"><name>2. Urnerstafel</name><desc>Alpine dairy farm near the lake where the ascent begins.</desc></rtept>
+  <rtept lat="46.868713" lon="8.413333"><ele>1951</ele><name>3. Walegg (1951 m)</name><desc>Highest point of the day. Steep zig-zag climb, then descent.</desc></rtept>
+  <rtept lat="46.858402" lon="8.431870"><ele>1884</ele><name>4. Oberfeld (1884 m)</name><desc>Alpine meadow; Alp Oberfeld restaurant (goat cheese, meat, yoghurt).</desc></rtept>
+  <rtept lat="46.838989" lon="8.422298"><ele>1716</ele><name>5. Rigidalalp (1716 m)</name><desc>Mountain restaurant; trail levels out and widens.</desc></rtept>
+  <rtept lat="46.831959" lon="8.407338"><ele>1600</ele><name>6. Brunni / Ristis (1600 m)</name><desc>End of hike. Engelberg-Ristis cable car down to Engelberg. Fri 26 Jun 2026: 08:00-17:00 every 20 min; single CHF 20 (CHF 10 Half-Fare).</desc></rtept>
+ </rte>
+</gpx>

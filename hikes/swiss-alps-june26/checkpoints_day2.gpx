@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Dinvest hike planner" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+ <wpt lat="46.794033" lon="8.399545"><ele>1796</ele><name>1. Trubsee (1796 m)</name><desc>Start lake (Titlis mid-station). Walk the left shore. Signs: Jochpass / Engstlenalp / Route 574.</desc></wpt>
+ <wpt lat="46.777885" lon="8.386998"><ele>2207</ele><name>2. Jochpass (2207 m)</name><desc>Steep climb to the pass - high point of the day. Chairlift shortcut from Trubsee.</desc></wpt>
+ <wpt lat="46.776352" lon="8.379205"><ele>1850</ele><name>3. Engstlensee (1850 m)</name><desc>Deep-blue second lake on the far side of the pass.</desc></wpt>
+ <wpt lat="46.774147" lon="8.357228"><ele>1834</ele><name>4. Engstlenalp (1834 m)</name><desc>Small settlement and hotel just past the lake.</desc></wpt>
+ <wpt lat="46.779011" lon="8.319904"><ele>1976</ele><name>5. Tannalp (1976 m)</name><desc>Third lake (Tannensee) and Berggasthaus Tannalp.</desc></wpt>
+ <wpt lat="46.775928" lon="8.269320"><ele>1920</ele><name>6. Melchsee-Frutt (1920 m)</name><desc>Resort village; flat path along Tannensee and Melchsee. Night 2: Berghotel Distelboden.</desc></wpt>
+ <rte>
+  <name>Day 2 checkpoints - Four Lakes Walk</name>
+  <rtept lat="46.794033" lon="8.399545"><ele>1796</ele><name>1. Trubsee (1796 m)</name><desc>Start lake (Titlis mid-station). Walk the left shore. Signs: Jochpass / Engstlenalp / Route 574.</desc></rtept>
+  <rtept lat="46.777885" lon="8.386998"><ele>2207</ele><name>2. Jochpass (2207 m)</name><desc>Steep climb to the pass - high point of the day. Chairlift shortcut from Trubsee.</desc></rtept>
+  <rtept lat="46.776352" lon="8.379205"><ele>1850</ele><name>3. Engstlensee (1850 m)</name><desc>Deep-blue second lake on the far side of the pass.</desc></rtept>
+  <rtept lat="46.774147" lon="8.357228"><ele>1834</ele><name>4. Engstlenalp (1834 m)</name><desc>Small settlement and hotel just past the lake.</desc></rtept>
+  <rtept lat="46.779011" lon="8.319904"><ele>1976</ele><name>5. Tannalp (1976 m)</name><desc>Third lake (Tannensee) and Berggasthaus Tannalp.</desc></rtept>
+  <rtept lat="46.775928" lon="8.269320"><ele>1920</ele><name>6. Melchsee-Frutt (1920 m)</name><desc>Resort village; flat path along Tannensee and Melchsee. Night 2: Berghotel Distelboden.</desc></rtept>
+ </rte>
+</gpx>

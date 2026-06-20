@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Dinvest hike planner" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+ <wpt lat="46.775928" lon="8.269320"><ele>1920</ele><name>1. Melchsee-Frutt (1920 m)</name><desc>Start. Walk east across the plateau toward Tannalp (about 45-60 min).</desc></wpt>
+ <wpt lat="46.779011" lon="8.319904"><ele>1976</ele><name>2. Tannalp (1976 m)</name><desc>Climb begins here; trail turns south and zig-zags up. Signs: Balmeregghorn / Planplatten / Horizontweg.</desc></wpt>
+ <wpt lat="46.759769" lon="8.293912"><name>3. Erzegg</name><desc>Ridge station on the climb; follow red-white-red markers.</desc></wpt>
+ <wpt lat="46.753506" lon="8.282995"><ele>2255</ele><name>4. Balmeregghorn (2255 m)</name><desc>Ridge crossing and hardest climb. Bernese Alps come into view - Eiger, Monch, Jungfrau.</desc></wpt>
+ <wpt lat="46.737949" lon="8.256304"><ele>2245</ele><name>5. Planplatten / Alpen tower (2245 m)</name><desc>Trail end. Gondolas down via Magisalp and Hasliberg Reuti to Meiringen, then train.</desc></wpt>
+ <rte>
+  <name>Day 3 checkpoints - Horizontweg</name>
+  <rtept lat="46.775928" lon="8.269320"><ele>1920</ele><name>1. Melchsee-Frutt (1920 m)</name><desc>Start. Walk east across the plateau toward Tannalp (about 45-60 min).</desc></rtept>
+  <rtept lat="46.779011" lon="8.319904"><ele>1976</ele><name>2. Tannalp (1976 m)</name><desc>Climb begins here; trail turns south and zig-zags up. Signs: Balmeregghorn / Planplatten / Horizontweg.</desc></rtept>
+  <rtept lat="46.759769" lon="8.293912"><name>3. Erzegg</name><desc>Ridge station on the climb; follow red-white-red markers.</desc></rtept>
+  <rtept lat="46.753506" lon="8.282995"><ele>2255</ele><name>4. Balmeregghorn (2255 m)</name><desc>Ridge crossing and hardest climb. Bernese Alps come into view - Eiger, Monch, Jungfrau.</desc></rtept>
+  <rtept lat="46.737949" lon="8.256304"><ele>2245</ele><name>5. Planplatten / Alpen tower (2245 m)</name><desc>Trail end. Gondolas down via Magisalp and Hasliberg Reuti to Meiringen, then train.</desc></rtept>
+ </rte>
+</gpx>

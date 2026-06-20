@@ -100,6 +100,9 @@
   @media(max-width:560px){.grid2{grid-template-columns:1fr}.hero h1{font-size:1.7rem}}
 
   .files{display:flex;flex-direction:column;gap:8px}
+  a.file{color:inherit;text-decoration:none;transition:.12s}
+  a.file:hover{border-color:var(--teal);background:#f0f7f5}
+  a.file .dl{margin-left:auto;color:var(--teal);font-weight:800;font-size:1.05rem}
   .file{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fbfdfc;font-size:.9rem}
   .file .ic{width:30px;height:30px;border-radius:8px;background:#e7f2f0;color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto;font-size:.72rem}
 
@@ -316,11 +319,13 @@
       <div class="card">
         <p style="margin:0 0 10px;font-size:.9rem;color:var(--muted)">Best app: <b>swisstopo</b> (free, official, offline) or <b>Mapy.cz</b>. Files are in this folder:</p>
         <div class="files">
-          <div class="file"><span class="ic">GPX</span> <div><b>walenpfad_day1.gpx</b> · Day 1 track + checkpoints</div></div>
-          <div class="file"><span class="ic">GPX</span> <div><b>vier_seen_day2.gpx</b> · Day 2 track + checkpoints</div></div>
-          <div class="file"><span class="ic">GPX</span> <div><b>horizontweg_day3.gpx</b> · Day 3 track + checkpoints</div></div>
-          <div class="file"><span class="ic">GPX</span> <div><b>central_swiss_alps_trek_3days.gpx</b> · all three days</div></div>
-          <div class="file"><span class="ic">RTE</span> <div><b>checkpoints_dayX.gpx</b> · checkpoints as route points (for swisstopo)</div></div>
+          <a class="file" href="walenpfad_day1.gpx" download><span class="ic">GPX</span> <div><b>walenpfad_day1.gpx</b> · Day 1 track + checkpoints</div><span class="dl">⬇</span></a>
+          <a class="file" href="vier_seen_day2.gpx" download><span class="ic">GPX</span> <div><b>vier_seen_day2.gpx</b> · Day 2 track + checkpoints</div><span class="dl">⬇</span></a>
+          <a class="file" href="horizontweg_day3.gpx" download><span class="ic">GPX</span> <div><b>horizontweg_day3.gpx</b> · Day 3 track + checkpoints</div><span class="dl">⬇</span></a>
+          <a class="file" href="central_swiss_alps_trek_3days.gpx" download><span class="ic">GPX</span> <div><b>central_swiss_alps_trek_3days.gpx</b> · all three days in one file</div><span class="dl">⬇</span></a>
+          <a class="file" href="checkpoints_day1.gpx" download><span class="ic">RTE</span> <div><b>checkpoints_day1.gpx</b> · Day 1 checkpoints (route points, for swisstopo)</div><span class="dl">⬇</span></a>
+          <a class="file" href="checkpoints_day2.gpx" download><span class="ic">RTE</span> <div><b>checkpoints_day2.gpx</b> · Day 2 checkpoints (route points)</div><span class="dl">⬇</span></a>
+          <a class="file" href="checkpoints_day3.gpx" download><span class="ic">RTE</span> <div><b>checkpoints_day3.gpx</b> · Day 3 checkpoints (route points)</div><span class="dl">⬇</span></a>
         </div>
         <div class="note" style="margin-top:12px">Tracks follow the real red-white-red trails (routed over OpenStreetMap), with elevation on every point. In <b>swisstopo</b>, named checkpoints show best via the <em>checkpoints_dayX</em> route-point files.</div>
       </div>
