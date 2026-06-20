@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<title>Central Swiss Alps Trek · 26–28 June 2026</title>
+<style>
+  :root{
+    --bg:#f4f7f6; --card:#ffffff; --ink:#15302b; --muted:#5e726c;
+    --line:#e3ebe8; --teal:#0f766e; --teal-d:#0b5851; --sky:#1d7fb8;
+    --gold:#c2873b; --rock:#6b7b86; --ok:#1f9d5b; --warn:#c2873b;
+    --shadow:0 1px 2px rgba(16,40,36,.06),0 6px 24px rgba(16,40,36,.07);
+    --r:18px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--teal);text-decoration:none}
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px 64px}
+
+  /* Hero */
+  .hero{
+    position:relative;color:#fff;padding:54px 20px 30px;
+    background:
+      radial-gradient(120% 80% at 80% -10%,rgba(255,255,255,.18),transparent 60%),
+      linear-gradient(160deg,#0f766e 0%,#0b5851 55%,#0a4f6b 100%);
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;left:0;right:0;bottom:-1px;height:46px;
+    background:var(--bg);
+    -webkit-mask:linear-gradient(#000 0 0);
+    clip-path:polygon(0 100%,0 55%,14% 70%,28% 38%,42% 64%,57% 22%,71% 58%,86% 30%,100% 60%,100% 100%);
+  }
+  .hero .eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;opacity:.85;font-weight:600}
+  .hero h1{margin:.25em 0 .15em;font-size:1.95rem;line-height:1.12;letter-spacing:-.02em}
+  .hero .sub{opacity:.92;font-size:1rem;max-width:48ch}
+  .hero .stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;position:relative;z-index:2}
+  .chip{background:rgba(255,255,255,.16);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.22);
+    padding:6px 11px;border-radius:999px;font-size:.82rem;font-weight:600;white-space:nowrap}
+
+  /* Status banner */
+  .status{display:flex;gap:10px;align-items:flex-start;margin:18px 0 4px;padding:13px 15px;border-radius:14px;
+    background:#e9f7ef;border:1px solid #bfe6cf;color:#13633c;font-size:.9rem}
+  .status .dot{width:10px;height:10px;border-radius:50%;background:var(--ok);margin-top:6px;flex:0 0 auto;
+    box-shadow:0 0 0 4px rgba(31,157,91,.16)}
+  .status b{color:#0d4a2c}
+
+  /* Sticky day nav */
+  nav.days{position:sticky;top:0;z-index:20;background:rgba(244,247,246,.92);backdrop-filter:blur(8px);
+    margin:18px -16px 0;padding:10px 16px;border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto}
+  nav.days button{flex:0 0 auto;border:1px solid var(--line);background:#fff;color:var(--muted);
+    font:inherit;font-weight:600;font-size:.86rem;padding:8px 14px;border-radius:999px;cursor:pointer;transition:.15s}
+  nav.days button.active{background:var(--teal);color:#fff;border-color:var(--teal)}
+
+  section{margin-top:26px}
+  .sect-title{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 10px;padding-left:2px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:18px;margin-bottom:14px}
+  .card h3{margin:0 0 2px;font-size:1.18rem;letter-spacing:-.01em}
+  .card .meta{color:var(--muted);font-size:.88rem;margin-bottom:12px}
+
+  .daytag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--teal-d);background:#def1ee;padding:3px 9px;border-radius:7px;margin-bottom:8px}
+
+  .facts{display:flex;flex-wrap:wrap;gap:6px 16px;margin:2px 0 14px;font-size:.86rem;color:var(--muted)}
+  .facts b{color:var(--ink);font-weight:700}
+
+  /* Checkpoints */
+  ol.cp{list-style:none;margin:0;padding:0;position:relative}
+  ol.cp::before{content:"";position:absolute;left:13px;top:8px;bottom:18px;width:2px;background:linear-gradient(var(--teal),var(--sky))}
+  ol.cp li{position:relative;padding:0 0 14px 38px}
+  ol.cp li:last-child{padding-bottom:0}
+  ol.cp .pin{position:absolute;left:4px;top:1px;width:20px;height:20px;border-radius:50%;background:#fff;
+    border:2px solid var(--teal);color:var(--teal);font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+  ol.cp li.end .pin{background:var(--teal);color:#fff}
+  ol.cp .nm{font-weight:700}
+  ol.cp .el{color:var(--sky);font-weight:700;font-size:.84rem}
+  ol.cp .ds{display:block;color:var(--muted);font-size:.86rem;margin-top:1px}
+
+  .note{margin-top:12px;padding:11px 13px;border-radius:12px;font-size:.86rem;background:#f3f6f9;border:1px solid #e0e9f0;color:#33566b}
+  .note.warn{background:#fbf3e7;border-color:#eddcc2;color:#7a5523}
+  .note .h{font-weight:700;display:block;margin-bottom:1px}
+
+  /* key/value rows */
+  .kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:.9rem;margin:6px 0 0}
+  .kv dt{color:var(--muted)}
+  .kv dd{margin:0;font-weight:600}
+
+  .pill{display:inline-block;font-size:.74rem;font-weight:700;padding:2px 8px;border-radius:6px;margin-left:6px;vertical-align:middle}
+  .pill.ok{background:#e3f6ec;color:#13633c}
+  .booked{color:var(--ok);font-weight:700}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:560px){.grid2{grid-template-columns:1fr}.hero h1{font-size:1.7rem}}
+
+  .files{display:flex;flex-direction:column;gap:8px}
+  .file{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fbfdfc;font-size:.9rem}
+  .file .ic{width:30px;height:30px;border-radius:8px;background:#e7f2f0;color:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto;font-size:.72rem}
+
+  .emerg{background:linear-gradient(135deg,#7c1d1d,#a93636);color:#fff;border:none}
+  .emerg h3,.emerg .meta{color:#fff}
+  .emerg a{color:#ffe2e2}
+  .bignum{font-size:1.5rem;font-weight:800;letter-spacing:.02em}
+
+  footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:34px}
+  .hide{display:none}
+  .note.ok{background:#e9f7ef;border-color:#bfe6cf;color:#13633c}
+  #map{height:62vh;min-height:380px;width:100%;border-radius:14px;border:1px solid var(--line);z-index:1}
+  .mk{width:22px;height:22px;border-radius:50%;color:#fff;font-weight:800;font-size:.72rem;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.45)}
+  .mk.hotel{width:27px;height:27px;border-radius:8px;background:#b23636;font-size:.95rem;border:2px solid #fff}
+  .mk.cart{width:24px;height:24px;border-radius:7px;background:#2f8f4e;font-size:.8rem;border:2px solid #fff}
+  .legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:12px;font-size:.84rem;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend i{width:16px;height:5px;border-radius:3px;display:inline-block}
+  .leaflet-popup-content{font:inherit;font-size:.86rem;line-height:1.4}
+  details summary{cursor:pointer;font-weight:600;color:var(--teal);font-size:.9rem;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::before{content:"▸ ";font-size:.8em}
+  details[open] summary::before{content:"▾ "}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap" style="padding-bottom:0">
+    <div class="eyebrow">Central Switzerland · Engelberg</div>
+    <h1>Central Swiss Alps Trek</h1>
+    <p class="sub">A 3-day point-to-point hut-to-hut hike: panoramic ridges, four alpine lakes, and a glacier-facing finale — Bannalp → Engelberg → Melchsee-Frutt → Planplatten.</p>
+    <div class="stats">
+      <span class="chip">🗓️ Fri 26 – Sun 28 Jun 2026</span>
+      <span class="chip">🥾 3 days · ~41 km</span>
+      <span class="chip">⛰️ +2,200 m</span>
+      <span class="chip">🛏️ 2 nights booked</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="status">
+    <span class="dot"></span>
+    <div><b>Walenpfad is OPEN</b> — opened Sat 20 Jun 2026 (brunni.ch). Cable cars at both ends running. Re-check the webcam/weather the day before for snow up high.</div>
+  </div>
+
+  <nav class="days">
+    <button data-t="overview" class="active">Overview</button>
+    <button data-t="d1">Day 1</button>
+    <button data-t="d2">Day 2</button>
+    <button data-t="d3">Day 3</button>
+    <button data-t="logistics">Logistics</button>
+    <button data-t="map">Map</button>
+  </nav>
+
+  <!-- OVERVIEW -->
+  <div data-p="overview">
+    <section>
+      <p class="sect-title">At a glance</p>
+      <div class="card">
+        <div class="kv">
+          <dt>Day 1 · Fri 26</dt><dd>Walenpfad · Bannalp → Engelberg · 14.8 km</dd>
+          <dt>Day 2 · Sat 27</dt><dd>Four Lakes · Engelberg → Melchsee-Frutt · 13.8 km</dd>
+          <dt>Day 3 · Sun 28</dt><dd>Horizontweg · Melchsee-Frutt → Planplatten · 12.1 km</dd>
+        </div>
+        <div class="note"><span class="h">Style</span> Point-to-point; you start each morning by cable car/lift and finish in a different valley — Swiss transport links it all, no backtracking. Trail marking throughout: red-white-red mountain-trail blazes + yellow signposts.</div>
+      </div>
+    </section>
+
+    <section>
+      <p class="sect-title">Stays</p>
+      <div class="grid2">
+        <div class="card" style="margin:0">
+          <div class="daytag">Night 1 · 26 Jun</div>
+          <h3>Ski Lodge Engelberg <span class="pill ok">Booked</span></h3>
+          <div class="meta">Erlenweg 36, Engelberg</div>
+          <div class="kv">
+            <dt>Conf.</dt><dd>6726747728 · PIN 7797</dd>
+            <dt>Check-in</dt><dd>16:00–19:00</dd>
+          </div>
+        </div>
+        <div class="card" style="margin:0">
+          <div class="daytag">Night 2 · 27 Jun</div>
+          <h3>Berghotel Distelboden <span class="pill ok">Booked</span></h3>
+          <div class="meta">Melchsee-Frutt · half-board</div>
+          <div class="kv">
+            <dt>Conf.</dt><dd>JHPVQR</dd>
+            <dt>Tel.</dt><dd>+41 41 669 12 66</dd>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- DAY 1 -->
+  <div data-p="d1" class="hide">
+    <section>
+      <div class="card">
+        <div class="daytag">Day 1 · Friday 26 June</div>
+        <h3>Walenpfad — Bannalp → Engelberg</h3>
+        <div class="facts"><span>📏 <b>14.8 km</b></span><span>⬆️ <b>+713 m</b></span><span>⬇️ <b>−833 m</b></span><span>⏱️ <b>~5 h</b></span><span>📈 <b>T2</b></span></div>
+        <ol class="cp">
+          <li><span class="pin">1</span><span class="nm">Chrüzhütte</span> <span class="el">1718 m</span><span class="ds">Start — top of the Bannalp cable car. Head toward Bannalpsee. Follow signs: Walenpfad / Brunni.</span></li>
+          <li><span class="pin">2</span><span class="nm">Urnerstafel</span><span class="ds">Alpine dairy farm near the lake where the ascent begins.</span></li>
+          <li><span class="pin">3</span><span class="nm">Walegg</span> <span class="el">1951 m</span><span class="ds">High point of the day — steep zig-zag climb, then descent the other side.</span></li>
+          <li><span class="pin">4</span><span class="nm">Oberfeld</span> <span class="el">1884 m</span><span class="ds">Alpine meadow. Alp Oberfeld Bergbeizli serves goat cheese, meat & yoghurt.</span></li>
+          <li><span class="pin">5</span><span class="nm">Rigidalalp</span> <span class="el">1716 m</span><span class="ds">Mountain restaurant; the trail levels out and widens.</span></li>
+          <li class="end"><span class="pin">6</span><span class="nm">Brunni / Ristis</span> <span class="el">1600 m</span><span class="ds">End of hike → cable car down to Engelberg.</span></li>
+        </ol>
+        <div class="note"><span class="h">🚠 Descent: Engelberg–Ristis cable car</span> Fri 26 Jun runs <b>08:00–17:00, every 20 min</b> (last down ~17:00). Single descent <b>CHF 20</b> (CHF 10 with Half-Fare). Tip: the <b>Walen Trail “2-Bergbahnen” ticket — CHF 38</b> (CHF 28 Half-Fare) covers the Bannalp lift up <em>and</em> Ristis down, both used today.</div>
+        <div class="note warn"><span class="h">⚠️ Before you go</span> Start by ~08:00 to beat afternoon thunderstorms. Check brunni.ch/walenpfad webcam for snow on the Walegg high section.</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- DAY 2 -->
+  <div data-p="d2" class="hide">
+    <section>
+      <div class="card">
+        <div class="daytag">Day 2 · Saturday 27 June</div>
+        <h3>Four Lakes Walk — Engelberg → Melchsee-Frutt</h3>
+        <div class="facts"><span>📏 <b>13.8 km</b></span><span>⬆️ <b>+775 m</b></span><span>⬇️ <b>−640 m</b></span><span>⏱️ <b>~4.5 h</b></span><span>📈 <b>T2</b></span></div>
+        <div class="note ok"><span class="h">✅ Status — open / operational</span> Titlis Xpress to Trübsee plus the Trübsee–Jochpass &amp; Engstlenalp–Jochpass chairlifts are all running (checked 20 Jun 2026); Four Lakes season runs from mid-June. Watch for a snow patch at the Jochpass.</div>
+        <div class="note"><span class="h">Start</span> Walk to the Titlis cable car in Engelberg and ride up to <b>Trübsee</b> to begin. Follow the green <b>Vier-Seen-Wanderung (Route 574)</b> stickers.</div>
+        <ol class="cp">
+          <li><span class="pin">1</span><span class="nm">Trübsee</span> <span class="el">1796 m</span><span class="ds">Starting lake (Titlis mid-station). Walk the left shore.</span></li>
+          <li><span class="pin">2</span><span class="nm">Jochpass</span> <span class="el">2207 m</span><span class="ds">Steep climb — high point of the day. Chairlift shortcut from Trübsee if tired.</span></li>
+          <li><span class="pin">3</span><span class="nm">Engstlensee</span> <span class="el">1850 m</span><span class="ds">Deep-blue second lake on the far side of the pass.</span></li>
+          <li><span class="pin">4</span><span class="nm">Engstlenalp</span> <span class="el">1834 m</span><span class="ds">Small settlement and hotel just past the lake.</span></li>
+          <li><span class="pin">5</span><span class="nm">Tannalp</span> <span class="el">1976 m</span><span class="ds">Third lake (Tannensee) and Berggasthaus Tannalp.</span></li>
+          <li class="end"><span class="pin">6</span><span class="nm">Melchsee-Frutt</span> <span class="el">1920 m</span><span class="ds">Flat path along Tannensee & Melchsee to the resort village. → Berghotel Distelboden.</span></li>
+        </ol>
+        <div class="note warn"><span class="h">⚠️ Snow patch</span> The Jochpass (>2,200 m) can hold packed snow into late June — waterproof boots & poles help.</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- DAY 3 -->
+  <div data-p="d3" class="hide">
+    <section>
+      <div class="card">
+        <div class="daytag">Day 3 · Sunday 28 June</div>
+        <h3>Horizontweg — Melchsee-Frutt → Planplatten</h3>
+        <div class="facts"><span>📏 <b>12.1 km</b></span><span>⬆️ <b>+715 m</b></span><span>⬇️ <b>−411 m</b></span><span>⏱️ <b>~4 h</b></span><span>📈 <b>T2</b></span></div>
+        <div class="note ok"><span class="h">✅ Status — open</span> Meiringen-Hasliberg shows the Horizontweg open (accessible from end of June). Possible lingering snow on the Balmeregghorn ridge (2,255 m).</div>
+        <ol class="cp">
+          <li><span class="pin">1</span><span class="nm">Melchsee-Frutt</span> <span class="el">1920 m</span><span class="ds">Start. Walk east across the plateau toward Tannalp (~45–60 min).</span></li>
+          <li><span class="pin">2</span><span class="nm">Tannalp</span> <span class="el">1976 m</span><span class="ds">The climb begins — trail turns south and zig-zags up. Signs: Balmeregghorn / Planplatten / Horizontweg.</span></li>
+          <li><span class="pin">3</span><span class="nm">Erzegg</span><span class="ds">Ridge station on the climb; follow the red-white-red markers.</span></li>
+          <li><span class="pin">4</span><span class="nm">Balmeregghorn</span> <span class="el">2255 m</span><span class="ds">Ridge crossing & hardest climb. The Bernese Alps explode into view — Eiger, Mönch, Jungfrau.</span></li>
+          <li class="end"><span class="pin">5</span><span class="nm">Planplatten / Alpen tower</span> <span class="el">2245 m</span><span class="ds">Trail end. Hike is over here.</span></li>
+        </ol>
+        <div class="note"><span class="h">🚠 Descent to your train</span> From Planplatten ride the gondolas down: <b>Planplatten → Mägisalp → Hasliberg Reuti → Meiringen</b>, then the train home. In the SBB app type <b>Planplatten</b> as the start.</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- LOGISTICS -->
+  <div data-p="logistics" class="hide">
+    <section>
+      <p class="sect-title">Getting there &amp; back from Basel</p>
+      <div class="card">
+        <div class="note"><span class="h">→ There · Day 1 morning (~2.5 h)</span> SBB app: <b>Basel SBB → Chrüzhütte (Bannalp)</b>. Basel → Luzern → Wolfenschiessen (train) → Oberrickenbach Talstation (PostBus 331) → Chrüzhütte (cable car). Hike starts at the top.</div>
+        <div class="note"><span class="h">🚠 Bannalp cable car · Fell → Chrüzhütte (up to the start)</span> 6 Jun–20 Sep 2026: every 30 min, <b>08:30–12:00</b> &amp; <b>13:00–17:30</b> (plus a 17:50 run). First ride up 08:30. Operator tip: if your PostBus reaches the valley station at xx:04, take the xx:30 cable car.</div>
+        <div class="note"><span class="h">← Back · Day 3 afternoon (~2.5–3 h)</span> SBB app: <b>Planplatten (or Meiringen) → Basel SBB</b>, via Interlaken or Luzern.</div>
+        <div class="note warn"><span class="h">🚠 Descent gondolas · Planplatten → Meiringen (Sun 28 Jun)</span> Planplatten/Alpen&nbsp;tower → Mägisalp: daily <b>09:00–16:30</b> — <b>last descent from Planplatten 16:30</b> (last up from Mägisalp 16:15). Then Mägisalp → Hasliberg Reuti runs to ~17:00, and the Reuti → Meiringen cableway drops you at the train. ⏰ Plan to reach Planplatten by <b>~16:00</b> so you don't miss the last ride down.</div>
+        <details style="margin-top:10px"><summary>Driving instead?</summary>
+        <p style="font-size:.88rem;color:var(--muted);margin:8px 0 0">Park at <b>Stans</b> (~1 h from Basel): 35-min train/bus to the Oberrickenbach cable car to start; on Day 3, Meiringen → Stans is ~1 h 15.</p></details>
+      </div>
+    </section>
+
+    <section>
+      <p class="sect-title">Food &amp; provisions (trail lunches)</p>
+      <div class="card">
+        <div class="note"><span class="h">🛒 Engelberg — stock up for Day 2 (Fri evening)</span> <b>Coop</b> (Titliszentrum 5, by the station, ~5 min from the Ski Lodge) and <b>Migros</b> (Klosterstrasse, centre). Tourist-resort hours incl. Sunday — roughly Mon–Sat ~08:00–18:30, Sun ~09:00–18:00 (verify on the day). Grab fruit, bread &amp; cheese here the evening you arrive.</div>
+        <div class="note"><span class="h">🛒 Melchsee-Frutt — small shop only (for Day 3)</span> Just one little grocery on the plateau: <b>Tutti Frutt / Frutt Laden</b> (Frutt 2, +41 41 669 09 09), open during cable-car season — limited choice, can pre-order cheese/meat platters. Safer bet: buy Day-3 trail food already in Engelberg, and/or ask <b>Berghotel Distelboden</b> for a packed lunch (Lunchpaket) at dinner.</div>
+      </div>
+    </section>
+
+    <section>
+      <p class="sect-title">Tickets &amp; fares</p>
+      <div class="card">
+        <p style="margin:0 0 8px;font-weight:700">Cable cars (adult single; <span style="color:var(--muted);font-weight:600">Half-Fare in brackets</span>)</p>
+        <dl class="kv">
+          <dt>Day 1 ↑ Bannalp (Fell→Chrüzhütte)</dt><dd>CHF 13 <span style="color:var(--muted)">(no Half-Fare/GA on this line)</span></dd>
+          <dt>Day 1 ↓ Engelberg–Ristis (Brunni)</dt><dd>CHF 20 (10)</dd>
+          <dt>Day 2 ↑ Engelberg–Trübsee (Titlis)</dt><dd>CHF 27 (13.50)</dd>
+          <dt>Day 2 ↑ Trübsee–Jochpass chairlift <span style="color:var(--muted)">(optional)</span></dt><dd>CHF 15 (7.50)</dd>
+          <dt>Day 3 ↓ Planplatten→Meiringen</dt><dd>CHF 47.40 (23.70)</dd>
+          <dt><b>Cable-car total (4 core rides)</b></dt><dd><b>≈ CHF 107</b> (≈ 60 with Half-Fare)</dd>
+        </dl>
+        <p style="margin:14px 0 8px;font-weight:700">Trains (2nd class, full fare, approx.)</p>
+        <dl class="kv">
+          <dt>Basel → Oberrickenbach (train + PostBus)</dt><dd>~CHF 55–62</dd>
+          <dt>Meiringen → Basel</dt><dd>~CHF 55–62</dd>
+          <dt><b>Train round trip</b></dt><dd><b>≈ CHF 110–125</b></dd>
+        </dl>
+        <div class="note ok"><span class="h">💸 How to pay less</span>
+          • <b>Supersaver tickets (Sparbillette)</b> in the SBB app — book your two travel days in advance for up to ~70% off; the biggest easy saving.<br>
+          • <b>Saver Day Pass</b> — 1-day unlimited train+bus (also covers the PostBus); compare vs point-to-point on each long travel day.<br>
+          • <b>Half-Fare Card</b> (Swiss Half Fare Card, ~CHF 120/1 month) — 50% off trains, buses &amp; most cable cars (not the Bannalp line). Roughly break-even for this trip alone; worth it only if you travel more.<br>
+          • Skip the "combo" mountain tickets here: the Walen Trail 2-Bergbahnen ticket (CHF 38) costs more than Bannalp + Ristis singles (CHF 33) because it bundles a chairlift you won't use.
+        </div>
+        <p style="font-size:.78rem;color:var(--muted);margin:10px 0 0">Train fares are estimates — confirm in the SBB app. Mountain fares from operator sites, subject to change.</p>
+      </div>
+    </section>
+
+    <section>
+      <p class="sect-title">Maps &amp; GPX files</p>
+      <div class="card">
+        <p style="margin:0 0 10px;font-size:.9rem;color:var(--muted)">Best app: <b>swisstopo</b> (free, official, offline) or <b>Mapy.cz</b>. Files are in this folder:</p>
+        <div class="files">
+          <div class="file"><span class="ic">GPX</span> <div><b>walenpfad_day1.gpx</b> · Day 1 track + checkpoints</div></div>
+          <div class="file"><span class="ic">GPX</span> <div><b>vier_seen_day2.gpx</b> · Day 2 track + checkpoints</div></div>
+          <div class="file"><span class="ic">GPX</span> <div><b>horizontweg_day3.gpx</b> · Day 3 track + checkpoints</div></div>
+          <div class="file"><span class="ic">GPX</span> <div><b>central_swiss_alps_trek_3days.gpx</b> · all three days</div></div>
+          <div class="file"><span class="ic">RTE</span> <div><b>checkpoints_dayX.gpx</b> · checkpoints as route points (for swisstopo)</div></div>
+        </div>
+        <div class="note" style="margin-top:12px">Tracks follow the real red-white-red trails (routed over OpenStreetMap), with elevation on every point. In <b>swisstopo</b>, named checkpoints show best via the <em>checkpoints_dayX</em> route-point files.</div>
+      </div>
+    </section>
+
+    <section>
+      <p class="sect-title">Weather &amp; what to pack</p>
+      <div class="card">
+        <div class="kv">
+          <dt>Valley (~1,000 m)</dt><dd>~20–26 °C day</dd>
+          <dt>High alpine (~2,000 m+)</dt><dd>~12–16 °C day · 4–7 °C night</dd>
+          <dt>Pattern</dt><dd>Clear mornings, afternoon thunderstorms — start ~08:00</dd>
+          <dt>App</dt><dd>MeteoSwiss (official, mountain-accurate)</dd>
+        </div>
+        <div class="note" style="margin-top:12px"><span class="h">🎒 Pack</span> Waterproof boots · layers + warm mid-layer · rain shell · trekking poles · sun hat & SPF · 1.5–2 L water · cash (huts/cards) · power bank · small first-aid.</div>
+      </div>
+    </section>
+
+    <section>
+      <p class="sect-title">In case of emergency</p>
+      <div class="card emerg">
+        <h3>Mountain rescue</h3>
+        <div class="meta">Save these before you lose signal</div>
+        <div class="kv">
+          <dt style="color:#ffd9d9">Rega (air rescue)</dt><dd><span class="bignum">1414</span></dd>
+          <dt style="color:#ffd9d9">Europe emergency</dt><dd><span class="bignum">112</span></dd>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div data-p="map" class="hide">
+    <section>
+      <p class="sect-title">Route map · checkpoints &amp; hotels</p>
+      <div class="card" style="padding:12px">
+        <div id="map"></div>
+        <div class="legend">
+          <span><i style="background:#0f766e"></i>Day 1 · Walenpfad</span>
+          <span><i style="background:#1d7fb8"></i>Day 2 · Four Lakes</span>
+          <span><i style="background:#c2873b"></i>Day 3 · Horizontweg</span>
+          <span>🛏 Hotels</span>
+          <span>🛒 Shops</span>
+        </div>
+        <p style="font-size:.8rem;color:var(--muted);margin:10px 0 0">Numbered pins = checkpoints (tap for details). Map © swisstopo — needs internet to load tiles.</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    Built for Idan · data from brunni.ch, engelberg.ch, PostBus &amp; SchweizMobil · routes © OpenStreetMap contributors.<br>Prices &amp; times subject to change — verify the day before.
+  </footer>
+</div>
+
+<script>
+  /* ---- tab switching ---- */
+  const btns=document.querySelectorAll('nav.days button');
+  const panes=document.querySelectorAll('[data-p]');
+  btns.forEach(b=>b.addEventListener('click',()=>{
+    btns.forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    const t=b.dataset.t;
+    panes.forEach(p=>p.classList.toggle('hide',p.dataset.p!==t));
+    window.scrollTo({top:0,behavior:'smooth'});
+    if(t==='map'){setTimeout(initMap,80);}
+  }));
+
+  /* ---- map data ---- */
+  const COL={d1:'#0f766e',d2:'#1d7fb8',d3:'#c2873b'};
+  const TRACKS={
+    d1:[[46.87199,8.43600],[46.87124,8.43510],[46.87098,8.43320],[46.87066,8.43051],[46.87000,8.42842],[46.86824,8.42575],[46.86604,8.43174],[46.86741,8.43363],[46.86854,8.43529],[46.86915,8.43387],[46.86948,8.43485],[46.87015,8.43871],[46.86984,8.44233],[46.86833,8.44277],[46.86781,8.44082],[46.86712,8.43836],[46.86525,8.43451],[46.86427,8.42852],[46.86508,8.42569],[46.86596,8.42377],[46.86784,8.42075],[46.86881,8.41955],[46.86752,8.41843],[46.86769,8.41686],[46.86870,8.41536],[46.86891,8.41420],[46.86948,8.41339],[46.86727,8.41136],[46.86713,8.40858],[46.86499,8.40977],[46.86462,8.40834],[46.86409,8.40635],[46.86326,8.40461],[46.86360,8.40013],[46.86248,8.39821],[46.86131,8.39780],[46.85969,8.39788],[46.85682,8.39911],[46.85578,8.40159],[46.85409,8.40391],[46.85121,8.40685],[46.84740,8.40527],[46.84606,8.40458],[46.84418,8.40778],[46.84146,8.41048],[46.84043,8.41140],[46.83781,8.41328],[46.83760,8.41660],[46.83941,8.42113],[46.83883,8.42281],[46.83600,8.41886],[46.83464,8.41475],[46.83265,8.40998],[46.83239,8.40807],[46.83216,8.40732]],
+    d2:[[46.79391,8.39905],[46.79389,8.39762],[46.79091,8.39264],[46.78992,8.39347],[46.78821,8.39265],[46.78770,8.39262],[46.78696,8.39234],[46.78642,8.39290],[46.78589,8.39335],[46.78552,8.39305],[46.78465,8.39285],[46.78405,8.39168],[46.78350,8.39146],[46.78243,8.39044],[46.78175,8.39045],[46.78113,8.38915],[46.77964,8.38815],[46.77839,8.38671],[46.77819,8.38682],[46.77730,8.38574],[46.77634,8.38410],[46.77640,8.38278],[46.77707,8.38133],[46.77679,8.37987],[46.77648,8.37799],[46.77620,8.37645],[46.77562,8.37425],[46.77547,8.37002],[46.77580,8.36486],[46.77583,8.35818],[46.77622,8.35326],[46.77589,8.34481],[46.77623,8.34380],[46.77885,8.34119],[46.77860,8.33610],[46.77781,8.33432],[46.77620,8.32766],[46.77518,8.32547],[46.77597,8.32287],[46.77759,8.32247],[46.77943,8.32086],[46.77918,8.32005],[46.77913,8.31889],[46.77872,8.31482],[46.77898,8.31200],[46.77891,8.30966],[46.77592,8.30115],[46.77501,8.29661],[46.77428,8.29253],[46.77492,8.28586],[46.77451,8.28367],[46.77404,8.28061],[46.77420,8.27458],[46.77444,8.27059],[46.77591,8.26922]],
+    d3:[[46.77591,8.26922],[46.77515,8.27058],[46.77419,8.27366],[46.77468,8.27748],[46.77405,8.28158],[46.77451,8.28367],[46.77520,8.28837],[46.77428,8.29253],[46.77488,8.29609],[46.77554,8.30017],[46.77909,8.30945],[46.77872,8.31012],[46.77898,8.31200],[46.77872,8.31482],[46.77915,8.31844],[46.77927,8.31952],[46.77949,8.31992],[46.77764,8.31724],[46.77599,8.31496],[46.77469,8.31367],[46.77173,8.31054],[46.77051,8.30963],[46.76963,8.30826],[46.76937,8.30701],[46.76812,8.30501],[46.76691,8.30557],[46.76694,8.30469],[46.76675,8.30365],[46.76352,8.29984],[46.76095,8.29729],[46.75946,8.29560],[46.75793,8.29120],[46.75703,8.29040],[46.75583,8.28762],[46.75528,8.28740],[46.75403,8.28556],[46.75357,8.28405],[46.75288,8.28302],[46.75227,8.28062],[46.75192,8.27877],[46.75167,8.27810],[46.75146,8.27663],[46.75089,8.27565],[46.75053,8.27521],[46.74964,8.27440],[46.74839,8.27303],[46.74716,8.27195],[46.74580,8.26994],[46.74514,8.26810],[46.74466,8.26679],[46.74400,8.26612],[46.74174,8.26272],[46.74067,8.26056],[46.73796,8.25778],[46.73747,8.25668]]
+  };
+  const CP={
+    d1:[[46.871983,8.436010,1,'Chrüzhütte',1718],[46.868095,8.443579,2,'Urnerstafel',''],[46.868713,8.413333,3,'Walegg',1951],[46.858402,8.431870,4,'Oberfeld',1884],[46.838989,8.422298,5,'Rigidalalp',1716],[46.831959,8.407338,6,'Brunni / Ristis',1600]],
+    d2:[[46.794033,8.399545,1,'Trübsee',1796],[46.777885,8.386998,2,'Jochpass',2207],[46.776352,8.379205,3,'Engstlensee',1850],[46.774147,8.357228,4,'Engstlenalp',1834],[46.779011,8.319904,5,'Tannalp',1976],[46.775928,8.269320,6,'Melchsee-Frutt',1920]],
+    d3:[[46.775928,8.269320,1,'Melchsee-Frutt',1920],[46.779011,8.319904,2,'Tannalp',1976],[46.759769,8.293912,3,'Erzegg',''],[46.753506,8.282995,4,'Balmeregghorn',2255],[46.737949,8.256304,5,'Planplatten · Alpen tower',2245]]
+  };
+  const HOTELS=[
+    [46.81898,8.40203,'Ski Lodge Engelberg','Night 1 · Fri 26 Jun · Erlenweg 36'],
+    [46.77116,8.28026,'Berghotel Distelboden','Night 2 · Sat 27 Jun · half-board']
+  ];
+  const SHOPS=[
+    [46.82069,8.40469,'Coop Engelberg','Titliszentrum 5 · ~5 min walk from the Ski Lodge'],
+    [46.82080,8.40535,'Migros Engelberg','Klosterstrasse · village centre'],
+    [46.77590,8.26950,'Tutti Frutt / Frutt Laden','Melchsee-Frutt · small grocery (Frutt 2)']
+  ];
+
+  let map=null;
+  function pin(n,color){return L.divIcon({className:'',html:'<div class="mk" style="background:'+color+'">'+n+'</div>',iconSize:[22,22],iconAnchor:[11,11]});}
+  function bed(){return L.divIcon({className:'',html:'<div class="mk hotel">🛏</div>',iconSize:[27,27],iconAnchor:[13,13]});}
+  function cart(){return L.divIcon({className:'',html:'<div class="mk cart">🛒</div>',iconSize:[24,24],iconAnchor:[12,12]});}
+  function initMap(){
+    if(map){map.invalidateSize();return;}
+    map=L.map('map',{scrollWheelZoom:false});
+    L.tileLayer('https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg',
+      {maxZoom:18,attribution:'&copy; swisstopo'}).addTo(map);
+    const all=[];
+    ['d1','d2','d3'].forEach(d=>{
+      L.polyline(TRACKS[d],{color:COL[d],weight:4,opacity:.9}).addTo(map);
+      TRACKS[d].forEach(p=>all.push(p));
+      CP[d].forEach(c=>{
+        L.marker([c[0],c[1]],{icon:pin(c[2],COL[d])}).addTo(map)
+          .bindPopup('<b>'+c[3]+'</b>'+(c[4]?'<br>'+c[4]+' m':''));
+      });
+    });
+    HOTELS.forEach(h=>{
+      L.marker([h[0],h[1]],{icon:bed()}).addTo(map)
+        .bindPopup('<b>🛏 '+h[2]+'</b><br>'+h[3]);
+    });
+    SHOPS.forEach(s=>{
+      L.marker([s[0],s[1]],{icon:cart()}).addTo(map)
+        .bindPopup('<b>🛒 '+s[2]+'</b><br>'+s[3]);
+    });
+    map.fitBounds(all,{padding:[28,28]});
+    setTimeout(()=>map.invalidateSize(),120);
+  }
+</script>
+</body>
+</html>
